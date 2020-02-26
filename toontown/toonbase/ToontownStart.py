@@ -65,6 +65,7 @@ if __debug__:
     openInjector_wx()
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
+__builtin__.directNotify = directNotify
 
 notify = directNotify.newCategory('ToontownStart')
 notify.setInfo(True)
