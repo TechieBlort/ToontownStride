@@ -111,7 +111,7 @@ class EditHotKeyDialog(wx.Dialog):
 class HotKeyPanel(ScrolledPanel):
     def __init__(self, parent):
         ScrolledPanel.__init__(self, parent, -1)
-        self.parent = parent
+        self._parent = parent
         self.updateUI()
 
     def updateUI(self):
@@ -154,7 +154,7 @@ class HotKeyPanel(ScrolledPanel):
 class HotKeyUI(wx.Dialog):
     def __init__(self, parent, id, title):
         wx.Dialog.__init__(self, parent, id, title, size=(550, 500))
-        self.parent = parent
+        self._parent = parent
         panel = HotKeyPanel(self)
         vbox = wx.BoxSizer(wx.VERTICAL)
         vbox.Add(panel, 1, wx.EXPAND, 0)

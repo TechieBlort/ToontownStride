@@ -54,7 +54,7 @@ class TaskManagerWidget(DirectObject):
         # Make sure TK mainloop is running
         from direct.showbase import TkGlobal
         # Record parent (used by ok cancel dialog boxes)
-        self.parent = parent
+        self._parent = parent
         # Record taskManager
         self.taskMgr = taskMgr
         # Init current task

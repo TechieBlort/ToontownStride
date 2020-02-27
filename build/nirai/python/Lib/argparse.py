@@ -198,7 +198,7 @@ class HelpFormatter(object):
 
         def __init__(self, formatter, parent, heading=None):
             self.formatter = formatter
-            self.parent = parent
+            self._parent = parent
             self.heading = heading
             self.items = []
 

@@ -604,7 +604,7 @@ class GridSizeUI(wx.Dialog):
     def __init__(self, parent, id, title, gridSize, gridSpacing):
         wx.Dialog.__init__(self, parent, id, title, size=(250, 240))
 
-        self.parent = parent
+        self._parent = parent
         panel = wx.Panel(self, -1)
         vbox = wx.BoxSizer(wx.VERTICAL)
 
@@ -633,7 +633,7 @@ class GridSizeUI(wx.Dialog):
     def onApply(self, evt):
         newSize = self.gridSizeSlider.GetValue()
         newSpacing = self.gridSpacingSlider.GetValue()
-        self.parent.updateGrids(newSize, newSpacing)
+        self._parent.updateGrids(newSize, newSpacing)
         base.le.ui.bindKeyEvents(True)
         self.Destroy()
 
@@ -661,7 +661,7 @@ class CurveDegreeUI(wx.Dialog):
     def __init__(self, parent, id, title):
         wx.Dialog.__init__(self, parent, id, title, size=(150, 120))
 
-        self.parent = parent
+        self._parent = parent
         panel = wx.Panel(self, -1)
         degreeBox = wx.BoxSizer(wx.VERTICAL)
     
@@ -680,10 +680,10 @@ class CurveDegreeUI(wx.Dialog):
         
     def onApply(self, evt):
         if(str(self.degree.GetSelection())=='0'):
-            self.parent.editor.curveEditor.degree = 2
+            self._parent.editor.curveEditor.degree = 2
         if(str(self.degree.GetSelection())=='1'):
-            self.parent.editor.curveEditor.degree = 3
+            self._parent.editor.curveEditor.degree = 3
         if(str(self.degree.GetSelection())=='2'):
-            self.parent.editor.curveEditor.degree = 4
+            self._parent.editor.curveEditor.degree = 4
         self.Destroy()
 
