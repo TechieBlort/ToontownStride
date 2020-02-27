@@ -75,7 +75,7 @@ class AppShell(Pmw.MegaWidget, DirectObject):
         if parent == None:
             self.parent = Toplevel()
         else:
-            self.parent = parent
+            self._parent = parent
         # Initialize the base class
         Pmw.MegaWidget.__init__(self, self.parent)
         # Set window size

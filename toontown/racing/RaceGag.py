@@ -11,7 +11,7 @@ class RaceGag(DirectObject.DirectObject):
 
     def __init__(self, parent, slot, testPos):
         DirectObject.DirectObject.__init__(self)
-        self.parent = parent
+        self._parent = parent
         self.name = 'gag-' + str(slot)
         self.geom = DroppedGag(self.name, base.race.qbox)
         self.geom.dropShadow.setScale(0.7)

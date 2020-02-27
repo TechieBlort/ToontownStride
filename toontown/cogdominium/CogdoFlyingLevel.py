@@ -15,7 +15,7 @@ class CogdoFlyingLevel(DirectObject):
     notify = directNotify.newCategory('CogdoFlyingLevel')
 
     def __init__(self, parent, frameModel, startPlatformModel, endPlatformModel, quadLengthUnits, quadVisibilityAhead, quadVisibiltyBehind):
-        self.parent = parent
+        self._parent = parent
         self.quadLengthUnits = quadLengthUnits
         self._halfQuadLengthUnits = quadLengthUnits / 2.0
         self.quadVisibiltyAhead = quadVisibilityAhead
@@ -188,7 +188,7 @@ class CogdoFlyingLevel(DirectObject):
 class CogdoFlyingLevelFactory:
 
     def __init__(self, parent, quadLengthUnits, quadVisibilityAhead, quadVisibiltyBehind, rng = None):
-        self.parent = parent
+        self._parent = parent
         self.quadLengthUnits = quadLengthUnits
         self.quadVisibiltyAhead = quadVisibilityAhead
         self.quadVisibiltyBehind = quadVisibiltyBehind

@@ -604,7 +604,7 @@ class GridSizeUI(wx.Dialog):
     def __init__(self, parent, id, title, gridSize, gridSpacing):
         wx.Dialog.__init__(self, parent, id, title, size=(250, 240))
 
-        self.parent = parent
+        self._parent = parent
         panel = wx.Panel(self, -1)
         vbox = wx.BoxSizer(wx.VERTICAL)
 
@@ -661,7 +661,7 @@ class CurveDegreeUI(wx.Dialog):
     def __init__(self, parent, id, title):
         wx.Dialog.__init__(self, parent, id, title, size=(150, 120))
 
-        self.parent = parent
+        self._parent = parent
         panel = wx.Panel(self, -1)
         degreeBox = wx.BoxSizer(wx.VERTICAL)
     

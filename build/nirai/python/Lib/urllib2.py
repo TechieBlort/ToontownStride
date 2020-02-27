@@ -521,7 +521,7 @@ class BaseHandler:
     handler_order = 500
 
     def add_parent(self, parent):
-        self.parent = parent
+        self._parent = parent
 
     def close(self):
         # Only exists for backwards compatibility

@@ -10,7 +10,7 @@ class FishBrowser(DirectScrolledList):
     notify = DirectNotifyGlobal.directNotify.newCategory('FishBrowser')
 
     def __init__(self, parent = aspect2d, **kw):
-        self.parent = parent
+        self._parent = parent
         gui = loader.loadModel('phase_3.5/models/gui/friendslist_gui')
         optiondefs = (('parent', self.parent, None),
          ('relief', None, None),
@@ -43,7 +43,7 @@ class FishBrowser(DirectScrolledList):
 
     def destroy(self):
         DirectScrolledList.destroy(self)
-        self.parent = None
+        self._parent = None
         return
 
     def update(self):

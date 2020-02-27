@@ -258,7 +258,7 @@ class MemoryExplorer(Pmw.MegaWidget, DirectObject):
 #--------------------------------------------------------------------------
 class MemoryExplorerItem:
     def __init__(self, parent, nodePath):
-        self.parent = parent
+        self._parent = parent
         self.nodePath = nodePath
         self.children = []
         

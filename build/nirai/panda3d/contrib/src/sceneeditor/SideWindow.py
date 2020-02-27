@@ -57,7 +57,7 @@ class sideWindow(AppShell):
         if parent == None:
             self.parent = Toplevel()
         else:
-            self.parent = parent
+            self._parent = parent
         
         AppShell.__init__(self, self.parent)
         self.parent.geometry('%dx%d+%d+%d' % (self.frameWidth, self.frameHeight,self.frameIniPosX,self.frameIniPosY))

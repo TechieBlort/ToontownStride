@@ -7,7 +7,7 @@ class BlinkingArrows:
         self.arrow1 = loader.loadModel('phase_3/models/props/arrow')
         self.arrow2 = loader.loadModel('phase_3/models/props/arrow')
         self.arrowTrack = None
-        self.parent = parent
+        self._parent = parent
         self.otherNode = otherNode
         return
 
@@ -40,7 +40,7 @@ class BlinkingArrows:
         self.arrow2.reparentTo(hidden)
     
     def reparentTo(self, parent):
-        self.parent = parent
+        self._parent = parent
         self.arrow1.reparentTo(self.parent)
         self.arrow2.reparentTo(self.parent)
 

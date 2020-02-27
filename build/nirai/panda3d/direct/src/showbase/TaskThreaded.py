@@ -142,7 +142,7 @@ class TaskThread:
         return self.parent.taskTimeLeft()
 
     def _init(self, parent):
-        self.parent = parent
+        self._parent = parent
         self._finished = False
     def _destroy(self):
         del self.parent

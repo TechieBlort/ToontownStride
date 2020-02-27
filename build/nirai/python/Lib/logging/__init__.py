@@ -1124,7 +1124,7 @@ class Logger(Filterer):
         Filterer.__init__(self)
         self.name = name
         self.level = _checkLevel(level)
-        self.parent = None
+        self._parent = None
         self.propagate = 1
         self.handlers = []
         self.disabled = 0
