@@ -63,7 +63,7 @@ class ObjectPropUI(wx.Panel):
     """
     def __init__(self, parent, label):
         wx.Panel.__init__(self, parent)
-        self._parent = parent
+        self.parent = parent
         self.labelPane = wx.Panel(self)
         self.label = wx.StaticText(self.labelPane, label=label)
         self.labelSizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -225,7 +225,7 @@ class ObjectPropUICombo(ObjectPropUI):
 class ObjectPropUITime(wx.Panel):
     def __init__(self, parent, label, value):
         wx.Panel.__init__(self, parent)
-        self._parent = parent
+        self.parent = parent
         self.labelPane = wx.Panel(self)
         self.label = wx.StaticText(self.labelPane, label=label)
         self.labelSizer = wx.BoxSizer(wx.HORIZONTAL)

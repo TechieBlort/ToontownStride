@@ -269,15 +269,15 @@ class OptionsTabPage(DirectFrame):
     ChangeDisplayAPI = base.config.GetBool('change-display-api', 0)
 
     def __init__(self, parent = aspect2d):
-        self._parent = parent
+        self.parent = parent
         self.currentSizeIndex = None
 
-        DirectFrame.__init__(self, parent=self._parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
+        DirectFrame.__init__(self, parent=self.parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
 
         self.load()
 
     def destroy(self):
-        self._parent = None
+        self.parent = None
 
         DirectFrame.destroy(self)
 
@@ -353,7 +353,7 @@ class OptionsTabPage(DirectFrame):
         self.speedChatStyleText.enter()
         self.speedChatStyleIndex = base.localAvatar.getSpeedChatStyleIndex()
         self.updateSpeedChatStyle()
-        if self._parent.book.safeMode:
+        if self.parent.book.safeMode:
             self.exitButton.hide()
         else:
             self.exitButton.show()
@@ -554,7 +554,7 @@ class OptionsTabPage(DirectFrame):
     def __handleExitShowWithConfirm(self):
         self.confirm = TTDialog.TTGlobalDialog(doneEvent='confirmDone', message=TTLocalizer.OptionsPageExitConfirm, style=TTDialog.TwoChoice)
         self.confirm.show()
-        self._parent.doneStatus = {'mode': 'exit',
+        self.parent.doneStatus = {'mode': 'exit',
          'exitTo': 'closeShard'}
         self.accept('confirmDone', self.__handleConfirm)
 
@@ -565,20 +565,20 @@ class OptionsTabPage(DirectFrame):
         del self.confirm
         if status == 'ok':
             base.cr._userLoggingOut = True
-            messenger.send(self._parent.doneEvent)
+            messenger.send(self.parent.doneEvent)
 
 
 class CodesTabPage(DirectFrame):
     notify = directNotify.newCategory('CodesTabPage')
 
     def __init__(self, parent = aspect2d):
-        self._parent = parent
-        DirectFrame.__init__(self, parent=self._parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
+        self.parent = parent
+        DirectFrame.__init__(self, parent=self.parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
         self.load()
         return
 
     def destroy(self):
-        self._parent = None
+        self.parent = None
         DirectFrame.destroy(self)
         return
 
@@ -700,16 +700,16 @@ class ExtraOptionsTabPage(DirectFrame):
     notify = directNotify.newCategory('ExtraOptionsTabPage')
 
     def __init__(self, parent = aspect2d):
-        self._parent = parent
+        self.parent = parent
         self.currentSizeIndex = None
         self.optionChoosers = {}
 
-        DirectFrame.__init__(self, parent=self._parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
+        DirectFrame.__init__(self, parent=self.parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
 
         self.load()
 
     def destroy(self):
-        self._parent = None
+        self.parent = None
         DirectFrame.destroy(self)
 
     def load(self):

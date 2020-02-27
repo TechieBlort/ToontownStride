@@ -21,7 +21,7 @@ class DirectScrolledListItem(DirectButton):
 
     def __init__(self, parent=None, **kw):
         assert self.notify.debugStateCall(self)
-        self._parent = parent
+        self.parent = parent
         if "command" in kw:
             self.nextCommand = kw.get("command")
             del kw["command"]

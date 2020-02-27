@@ -3,10 +3,7 @@
 dependencies/backups/
 dependencies/astron/databases/astrondb/*
 dependencies/astron/databases/account-bridge.db
-/.idea/discord.xml
-/.idea/modules.xml
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/Toontown Stride.iml
-/.idea/vcs.xml
-/.idea/workspace.xml
+
 user/*
+
+.idea/
