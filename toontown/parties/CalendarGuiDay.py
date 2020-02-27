@@ -293,7 +293,7 @@ class MiniInviteVisual(DirectFrame):
         DirectFrame.__init__(self, parent, pos=(0.1, 0, -0.018))
         self.checkedHeight = True
         self.partyInfo = partyInfo
-        self._parent = parent
+        self.parent = parent
         self.inviteBackgrounds = loader.loadModel('phase_4/models/parties/partyStickerbook')
         backgrounds = ['calendar_popup_birthday',
          'calendar_popup_fun',

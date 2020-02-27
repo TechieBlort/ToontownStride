@@ -14,7 +14,7 @@ class DirectRegion(NodePath):
 
     def destroy(self):
         self.unload()
-        self._parent = None
+        self.parent = None
         return
 
     def setBounds(self, *bounds):
@@ -94,7 +94,7 @@ class FlowerPhoto(NodePath):
         self.fish = None
         del self.soundTrack
         del self.track
-        self._parent = None
+        self.parent = None
         return
 
     def update(self, species, variety):

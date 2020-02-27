@@ -23,7 +23,7 @@ class DistributedPartyActivityAI(DistributedObjectAI):
 
     def __init__(self, air, parent, activityTuple):
         DistributedObjectAI.__init__(self, air)
-        self._parent = parent
+        self.parent = parent
         x, y, h = activityTuple[1:] # ignore activity ID
         self.x = PartyUtils.convertDistanceFromPartyGrid(x, 0)
         self.y = PartyUtils.convertDistanceFromPartyGrid(y, 1)

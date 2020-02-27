@@ -306,7 +306,7 @@ class ItemSelector(DirectFrame):
         def __init__(self, avatar, parent = aspect2d):
             self.currItem = None
             self.itemList = None
-            self._parent = parent
+            self.parent = parent
             self.avatar = avatar
             self.currAccessoryType = None
             self.texCount = 1
@@ -615,7 +615,7 @@ class ItemSelector(DirectFrame):
         self.avatar = avatar
         self.itemViewers = {}
         self.buttonDict = {}
-        self._parent = parent
+        self.parent = parent
         DirectFrame.__init__(self, parent=parent, relief=None, pos=(0, 0, 0), scale=(1.0, 1.0, 1.0))
         return
 
@@ -753,7 +753,7 @@ class KartViewer(DirectFrame):
     def __init__(self, dna, parent):
         self.kart = None
         self.dna = dna
-        self._parent = parent
+        self.parent = parent
         self.kartFrame = None
         self.bounds = None
         self.colors = None

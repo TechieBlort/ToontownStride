@@ -304,7 +304,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
                 self.parent.announceWinner('Chinese Checkers', avId)
 
 
-        self._parent = None
+        self.parent = None
 
 
     def distributeLaffPoints(self):

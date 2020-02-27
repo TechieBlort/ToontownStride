@@ -10,7 +10,7 @@ class FlowerPicker(DirectScrolledList):
 
     def __init__(self, parent = aspect2d, **kw):
         self.flowerList = []
-        self._parent = parent
+        self.parent = parent
         self.shown = 0
         gui = loader.loadModel('phase_3.5/models/gui/friendslist_gui')
         optiondefs = (('parent', self.parent, None),
@@ -63,7 +63,7 @@ class FlowerPicker(DirectScrolledList):
 
     def destroy(self):
         DirectScrolledList.destroy(self)
-        self._parent = None
+        self.parent = None
         self.flowerList = []
         self.flowerPanel = None
         return

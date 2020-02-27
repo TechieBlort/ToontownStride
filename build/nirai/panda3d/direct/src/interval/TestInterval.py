@@ -39,7 +39,7 @@ class TestInterval(Interval):
             name = id
         # Record instance variables
         self.particleEffect = particleEffect
-        self._parent = parent
+        self.parent = parent
         self.renderParent = renderParent
                 
         Interval.__init__(self, name, duration)
