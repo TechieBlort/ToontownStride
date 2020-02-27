@@ -207,7 +207,7 @@ class Fixture(NodePath, FSM):
 class DistributedCamera(DistributedObject):
     def __init__(self, cr):
         DistributedObject.__init__(self, cr)
-        self.parent = None
+        self._parent = None
         self.fixtures = {}
         self.cameraId = base.config.GetInt('camera-id',0)
 
@@ -231,7 +231,7 @@ class DistributedCamera(DistributedObject):
     def disable(self):
         self.ignore('escape')
         
-        self.parent = None
+        self._parent = None
         
         for fixture in self.fixtures.itervalues():
             fixture.cleanup()

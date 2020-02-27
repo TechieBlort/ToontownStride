@@ -105,7 +105,7 @@ class myLevelEditor(AppShell):
     def __init__(self, parent = None, **kw):
 
         base.setBackgroundColor(0,0,0)
-        self.parent = parent
+        self._parent = parent
         ## Check TkTool is activated! ##
         self.wantTK = config.GetBool('want-tk', 0)
         if self.wantTK:

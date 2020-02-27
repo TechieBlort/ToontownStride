@@ -33,7 +33,7 @@ class TreeNode:
 
     def __init__(self, canvas, parent, item, menuList = []):
         self.canvas = canvas
-        self.parent = parent
+        self._parent = parent
         self.item = item
         self.state = 'collapsed'
         self.selected = 0
@@ -68,7 +68,7 @@ class TreeNode:
             c = self.children[key]
             del self.children[key]
             c.destroy()
-        self.parent = None
+        self._parent = None
 
     def geticonimage(self, name):
         try:
