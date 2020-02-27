@@ -19,7 +19,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
         self.myPos = (x, y, z)
         self.myHpr = (h, p, r)
         self.board = ChineseCheckersBoard.ChineseCheckersBoard()
-        self._parent = self.air.doId2do[parent]
+        self.parent = self.air.doId2do[parent]
         self.parentDo = parent
         self.wantStart = []
         self.playersPlaying = []
@@ -47,7 +47,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
             'setH',
             'setP',
             'setR'])
-        self._parent.setCheckersZoneId(self.zoneId)
+        self.parent.setCheckersZoneId(self.zoneId)
         self.startingPositions = [
             [
                 0,
@@ -127,7 +127,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
 
 
     def announceGenerate(self):
-        self._parent.setGameDoId(self.doId)
+        self.parent.setGameDoId(self.doId)
 
 
     def getTableDoId(self):
@@ -244,7 +244,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
                         if self.movesMade >= self.movesRequiredToWin:
                             self.distributeLaffPoints()
                             self.fsm.request('gameOver')
-                            self._parent.announceWinner('Chinese Checkers', x)
+                            self.parent.announceWinner('Chinese Checkers', x)
                         else:
                             self.fsm.request('gameOver')
 
@@ -258,7 +258,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
     def requestWin(self):
         avId = self.air.getAvatarIdFromSender()
         if avId not in self.playersGamePos:
-            self.air.writeServerEvent('suspicious', avId, 'Has requested a Chinese Checkers win and is NOT playing! SeatList of  the table - %s - PlayersGamePos - %s' % (self._parent.seats, self.playersGamePos))
+            self.air.writeServerEvent('suspicious', avId, 'Has requested a Chinese Checkers win and is NOT playing! SeatList of  the table - %s - PlayersGamePos - %s' % (self.parent.seats, self.playersGamePos))
             return None
 
         requestWinGamePos = self.playersGamePos.index(avId) + 1
@@ -272,43 +272,43 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
             if checkSquares == self.startingPositions[3]:
                 self.distributeLaffPoints()
                 self.fsm.request('gameOver')
-                self._parent.announceWinner('Chinese Checkers', avId)
+                self.parent.announceWinner('Chinese Checkers', avId)
 
         elif requestWinGamePos == 2:
             if checkSquares == self.startingPositions[4]:
                 self.distributeLaffPoints()
                 self.fsm.request('gameOver')
-                self._parent.announceWinner('Chinese Checkers', avId)
+                self.parent.announceWinner('Chinese Checkers', avId)
 
         elif requestWinGamePos == 3:
             if checkSquares == self.startingPositions[5]:
                 self.distributeLaffPoints()
                 self.fsm.request('gameOver')
-                self._parent.announceWinner('Chinese Checkers', avId)
+                self.parent.announceWinner('Chinese Checkers', avId)
 
         elif requestWinGamePos == 4:
             if checkSquares == self.startingPositions[0]:
                 self.distributeLaffPoints()
                 self.fsm.request('gameOver')
-                self._parent.announceWinner('Chinese Checkers', avId)
+                self.parent.announceWinner('Chinese Checkers', avId)
 
         elif requestWinGamePos == 5:
             if checkSquares == self.startingPositions[1]:
                 self.fsm.request('gameOver')
-                self._parent.announceWinner('Chinese Checkers', avId)
+                self.parent.announceWinner('Chinese Checkers', avId)
 
         elif requestWinGamePos == 6:
             if checkSquares == self.startingPositions[2]:
                 self.distributeLaffPoints()
                 self.fsm.request('gameOver')
-                self._parent.announceWinner('Chinese Checkers', avId)
+                self.parent.announceWinner('Chinese Checkers', avId)
 
 
-        self._parent = None
+        self.parent = None
 
 
     def distributeLaffPoints(self):
-        for x in self._parent.seats:
+        for x in self.parent.seats:
             if x != None:
                 av = self.air.doId2do.get(x)
                 av.toonUp(self.winLaffPoints)
@@ -318,7 +318,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
 
     def enterWaitingToBegin(self):
         self.setGameCountdownTime()
-        self._parent.isAccepting = True
+        self.parent.isAccepting = True
 
 
     def exitWaitingToBegin(self):
@@ -326,7 +326,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
 
 
     def enterPlaying(self):
-        self._parent.isAccepting = False
+        self.parent.isAccepting = False
         for x in self.playersGamePos:
             if x != None:
                 self.playersTurn = self.playersGamePos.index(x)
@@ -347,7 +347,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
         self.timerEnd = 0
         isAccepting = True
         self.playersObserving = []
-        self._parent.handleGameOver()
+        self.parent.handleGameOver()
         self.playersTurn = 1
         self.playersPlaying = []
         self.clearBoard()
@@ -373,14 +373,14 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
             self.wantStart.append(avId)
 
         numPlayers = 0
-        for x in self._parent.seats:
+        for x in self.parent.seats:
             if x != None:
                 numPlayers = numPlayers + 1
                 continue
 
         if len(self.wantStart) == numPlayers and numPlayers >= 2:
             self.d_gameStart(avId)
-            self._parent.sendIsPlaying()
+            self.parent.sendIsPlaying()
 
 
 
@@ -398,7 +398,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
             6]
         zz = 0
         numPlayers = 0
-        for x in self._parent.seats:
+        for x in self.parent.seats:
             if x != None:
                 numPlayers += 1
                 self.playersPlaying.append(x)
@@ -560,7 +560,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
         for x in xrange(6):
             id = self.playersGamePos[x]
             if id != None:
-                playerSeatPos[self._parent.seats.index(id)] = x + 1
+                playerSeatPos[self.parent.seats.index(id)] = x + 1
                 continue
 
         self.sendUpdate('announceSeatPositions', [
@@ -569,7 +569,7 @@ class DistributedChineseCheckersAI(DistributedNodeAI):
         self.sendGameState([])
         self.wantStart = []
         self.fsm.request('playing')
-        self._parent.getTableState()
+        self.parent.getTableState()
 
 
     def d_sendTurn(self, playersTurn):

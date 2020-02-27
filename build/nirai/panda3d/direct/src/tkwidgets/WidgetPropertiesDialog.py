@@ -41,7 +41,7 @@ class WidgetPropertiesDialog(Toplevel):
         if title:
             self.title(title)
         # Record parent
-        self._parent = parent
+        self.parent = parent
         # Initialize modifications
         self.modifiedDict = {}
         # Create body

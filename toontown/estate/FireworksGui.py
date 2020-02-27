@@ -63,7 +63,7 @@ class FireworksGui(DirectFrame):
         return
 
     def unload(self):
-        del self._parent
+        del self.parent
         del self.itemList
         del self.panelPicker
 

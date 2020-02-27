@@ -15,7 +15,7 @@ class DirectRegion(NodePath):
 
     def destroy(self):
         self.unload()
-        self._parent = None
+        self.parent = None
         return
 
     def setBounds(self, *bounds):
@@ -100,7 +100,7 @@ class SpecialsPhoto(NodePath):
         self.type = None
         del self.soundTrack
         del self.track
-        self._parent = None
+        self.parent = None
         return
 
     def update(self, type):
