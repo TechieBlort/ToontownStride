@@ -65,7 +65,11 @@ if __debug__:
     openInjector_wx()
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
+from direct.gui.DirectGuiGlobals import NO_FADE_SORT_INDEX, FADE_SORT_INDEX
+
 __builtin__.directNotify = directNotify
+__builtin__.NO_FADE_SORT_INDEX = NO_FADE_SORT_INDEX
+__builtin__.FADE_SORT_INDEX = FADE_SORT_INDEX
 
 notify = directNotify.newCategory('ToontownStart')
 notify.setInfo(True)

@@ -108,7 +108,7 @@ def checkName(name, otherCheckFuncs = [], font = None):
                 if ord(char) >= 128:
                     return None
 
-            letters = filterString(word, string.letters)
+            letters = filterString(word, string.ascii_letters)
             if len(letters) > 2:
                 vowels = filterString(letters, 'aeiouyAEIOUY')
                 if len(vowels) == 0:
