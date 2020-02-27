@@ -3,7 +3,9 @@
 dependencies/backups/
 dependencies/astron/databases/astrondb/*
 dependencies/astron/databases/account-bridge.db
-
 user/*
-
-.idea/
+/.idea/discord.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
