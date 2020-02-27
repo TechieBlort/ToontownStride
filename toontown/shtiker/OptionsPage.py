@@ -353,7 +353,7 @@ class OptionsTabPage(DirectFrame):
         self.speedChatStyleText.enter()
         self.speedChatStyleIndex = base.localAvatar.getSpeedChatStyleIndex()
         self.updateSpeedChatStyle()
-        if self.parent.book.safeMode:
+        if self._parent.book.safeMode:
             self.exitButton.hide()
         else:
             self.exitButton.show()
@@ -554,7 +554,7 @@ class OptionsTabPage(DirectFrame):
     def __handleExitShowWithConfirm(self):
         self.confirm = TTDialog.TTGlobalDialog(doneEvent='confirmDone', message=TTLocalizer.OptionsPageExitConfirm, style=TTDialog.TwoChoice)
         self.confirm.show()
-        self.parent.doneStatus = {'mode': 'exit',
+        self._parent.doneStatus = {'mode': 'exit',
          'exitTo': 'closeShard'}
         self.accept('confirmDone', self.__handleConfirm)
 
@@ -565,7 +565,7 @@ class OptionsTabPage(DirectFrame):
         del self.confirm
         if status == 'ok':
             base.cr._userLoggingOut = True
-            messenger.send(self.parent.doneEvent)
+            messenger.send(self._parent.doneEvent)
 
 
 class CodesTabPage(DirectFrame):

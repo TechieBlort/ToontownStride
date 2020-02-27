@@ -103,7 +103,7 @@ class ShuffleButton:
         return self.currChoice
 
     def saveCurrChoice(self):
-        self.currChoice = self.parent.getCurrToonSetting()
+        self.currChoice = self._parent.getCurrToonSetting()
         self.history[self.historyPtr] = self.currChoice
 
     def __goBackHistory(self):
