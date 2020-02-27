@@ -17,6 +17,11 @@ sys.path.append(
     )
 )
 
+from panda3d.core import NodePath
+
+for dtool in ('children', 'parent', 'name'):
+    del NodePath.DtoolClassDict[dtool]
+
 # Temporary hack patch:
 __builtin__.__dict__.update(__import__('pandac.PandaModules', fromlist=['*']).__dict__)
 
