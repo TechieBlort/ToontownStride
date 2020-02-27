@@ -64,11 +64,11 @@ cd ../../
 
 :main
 if %INPUT%==2 (
-    "C:\Panda3D-1.10.0\python\ppython.exe" -m toontown.toonbase.ToontownStartRemoteDB
+    "C:\Panda3D-1.11.0-x64-py2\python\ppython.exe" -m toontown.toonbase.ToontownStartRemoteDB
 ) else if %INPUT%==4 (
-    "C:\Panda3D-1.10.0\python\ppython.exe" -m toontown.toonbase.ToontownStartRemoteDB
+    "C:\Panda3D-1.11.0-x64-py2\python\ppython.exe" -m toontown.toonbase.ToontownStartRemoteDB
 ) else (
-    "C:\Panda3D-1.10.0\python\ppython.exe" -m toontown.toonbase.ToontownStart
+    "C:\Panda3D-1.11.0-x64-py2\python\ppython.exe" -m toontown.toonbase.ToontownStart
 )
 pause
 

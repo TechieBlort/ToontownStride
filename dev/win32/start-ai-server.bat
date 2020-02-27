@@ -26,7 +26,7 @@ echo ===============================
 cd ../../
 
 :main
-"C:\Panda3D-1.10.0\python\ppython.exe" ^
+"C:\Panda3D-1.11.0-x64-py2\python\ppython.exe" ^
 	-m toontown.ai.ServiceStart ^
 	--base-channel %BASE_CHANNEL% ^
 	--max-channels %MAX_CHANNELS% ^

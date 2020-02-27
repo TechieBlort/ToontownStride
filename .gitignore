@@ -1,2 +1,7 @@
 *.log
 *.pyc
+dependencies/backups/
+dependencies/astron/databases/astrondb/*
+dependencies/astron/databases/account-bridge.db
+
+.idea/
