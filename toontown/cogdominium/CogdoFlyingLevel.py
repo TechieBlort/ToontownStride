@@ -75,7 +75,7 @@ class CogdoFlyingLevel(DirectObject):
         del self.obstacleFactory
         self._initStartEndPlatforms()
         self._frameModel.reparentTo(self.root)
-        self.root.reparentTo(self._parent)
+        self.root.reparentTo(self.parent)
         self.root.stash()
 
     def _initStartEndPlatforms(self):
@@ -212,7 +212,7 @@ class CogdoFlyingLevelFactory:
         frameModel.find('**/fogTranslucent_top').setBin('fixed', 2)
         frameModel.getChildren().reparentTo(levelNode)
         levelNode.hide()
-        self._level = CogdoFlyingLevel(self._parent, levelNode, startPlatformModel, endPlatformModel, self.quadLengthUnits, self.quadVisibiltyAhead, self.quadVisibiltyBehind)
+        self._level = CogdoFlyingLevel(self.parent, levelNode, startPlatformModel, endPlatformModel, self.quadLengthUnits, self.quadVisibiltyAhead, self.quadVisibiltyBehind)
         if Globals.Dev.WantTempLevel:
             quads = Globals.Dev.DevQuadsOrder
         else:

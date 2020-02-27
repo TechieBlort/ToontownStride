@@ -37,7 +37,7 @@ class RaceGag(DirectObject.DirectObject):
         self.gagnp = None
         self.geom.delete()
         self.geom = None
-        del self._parent
+        del self.parent
         self.ignore('imIn-' + self.name)
         return
 
@@ -54,7 +54,7 @@ class RaceGag(DirectObject.DirectObject):
         self.type = type
         fadein = self.geom.scaleInterval(1, 4)
         self.geom.setScale(0.001)
-        self.geom.reparentTo(self._parent.geom)
+        self.geom.reparentTo(self.parent.geom)
         self.gagnp.reparentTo(self.geom)
         fadein.start()
 
@@ -70,7 +70,7 @@ class RaceGag(DirectObject.DirectObject):
         self.fadeout.start()
 
     def hitGag(self, cevent):
-        if not self._parent.currGag:
+        if not self.parent.currGag:
             self.pickupSound.play()
-            self._parent.pickupGag(self.slot, self.type)
+            self.parent.pickupGag(self.slot, self.type)
             self.disableGag()

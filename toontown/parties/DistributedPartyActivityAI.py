@@ -40,7 +40,7 @@ class DistributedPartyActivityAI(DistributedObjectAI):
         return self.h
 
     def getPartyDoId(self):
-        return self._parent
+        return self.parent
 
     def updateToonsPlaying(self):
         self.sendUpdate('setToonsPlaying', [self.toonsPlaying])

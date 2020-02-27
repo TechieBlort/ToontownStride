@@ -13,7 +13,7 @@ class FishPicker(DirectScrolledList):
         self._parent = parent
         self.shown = 0
         gui = loader.loadModel('phase_3.5/models/gui/friendslist_gui')
-        optiondefs = (('parent', self._parent, None),
+        optiondefs = (('parent', self.parent, None),
          ('relief', None, None),
          ('incButton_image', (gui.find('**/FndsLst_ScrollUp'),
            gui.find('**/FndsLst_ScrollDN'),

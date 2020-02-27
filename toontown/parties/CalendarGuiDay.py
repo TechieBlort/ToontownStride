@@ -308,9 +308,9 @@ class MiniInviteVisual(DirectFrame):
         self.partyStatusLabel = DirectLabel(parent=self, relief=None, text=' ', pos=(0.07, 0.0, -0.175), text_scale=0.04, textMayChange=True)
 
     def show(self):
-        self.reparentTo(self._parent)
+        self.reparentTo(self.parent)
         self.setPos(0.1, 0, -0.018)
-        newParent = self._parent.getParent().getParent()
+        newParent = self.parent.getParent().getParent()
         self.wrtReparentTo(newParent)
         if self.whosePartyLabel['text'] == ' ':
             host = base.cr.identifyAvatar(self.partyInfo.hostId)
@@ -336,7 +336,7 @@ class MiniInviteVisual(DirectFrame):
     def destroy(self):
         del self.checkedHeight
         del self.partyInfo
-        del self._parent
+        del self.parent
         del self.background
         del self.whosePartyLabel
         del self.whenTextLabel
