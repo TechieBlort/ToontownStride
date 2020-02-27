@@ -17,6 +17,11 @@ sys.path.append(
     )
 )
 
+from panda3d.core import NodePath
+
+for dtool in ('children', 'parent', 'name'):
+    del NodePath.DtoolClassDict[dtool]
+
 import argparse
 
 parser = argparse.ArgumentParser()
