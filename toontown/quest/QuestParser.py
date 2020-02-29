@@ -435,7 +435,7 @@ class NPCMoviePlayer(DirectObject.DirectObject):
 
     def parseLoadSfx(self, line):
         token, varName, fileName = line
-        sfx = base.loadSfx(fileName)
+        sfx = base.loader.loadSfx(fileName)
         self.setVar(varName, sfx)
 
     def parseLoadSuit(self, line):
@@ -752,7 +752,7 @@ class NPCMoviePlayer(DirectObject.DirectObject):
     def parseAddInventory(self, line):
         token, track, level, number = line
         inventory = self.getVar('inventory')
-        countSound = base.loadSfx('phase_3.5/audio/sfx/tick_counter.ogg')
+        countSound = base.loader.loadSfx('phase_3.5/audio/sfx/tick_counter.ogg')
         return Sequence(Func(base.playSfx, countSound), Func(inventory.buttonBoing, track, level), Func(inventory.addItems, track, level, number), Func(inventory.updateGUI, track, level))
 
     def parseSetInventory(self, line):

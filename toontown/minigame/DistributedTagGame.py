@@ -46,8 +46,8 @@ class DistributedTagGame(DistributedMinigame):
         safezoneId = self.getSafezoneId()
         self.sky = loader.loadModel(TagGameGlobals.getSky(safezoneId))
         self.ground = loader.loadModel(TagGameGlobals.getGround(safezoneId))
-        self.music = base.loadMusic('phase_4/audio/bgm/MG_toontag.ogg')
-        self.tagSfx = base.loadSfx('phase_4/audio/sfx/MG_Tag_C.ogg')
+        self.music = base.loader.loadMusic('phase_4/audio/bgm/MG_toontag.ogg')
+        self.tagSfx = base.loader.loadSfx('phase_4/audio/sfx/MG_Tag_C.ogg')
         self.itPointer = loader.loadModel('phase_4/models/minigames/bboard-pointer')
         self.tracks = []
         self.initialPositions = TagGameGlobals.getDropPoints(safezoneId)

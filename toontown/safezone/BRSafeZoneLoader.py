@@ -13,7 +13,7 @@ class BRSafeZoneLoader(SafeZoneLoader.SafeZoneLoader):
 
     def load(self):
         SafeZoneLoader.SafeZoneLoader.load(self)
-        self.windSound = map(base.loadSfx, ['phase_8/audio/sfx/SZ_TB_wind_1.ogg',
+        self.windSound = map(base.loader.loadSfx, ['phase_8/audio/sfx/SZ_TB_wind_1.ogg',
                                             'phase_8/audio/sfx/SZ_TB_wind_2.ogg',
                                             'phase_8/audio/sfx/SZ_TB_wind_3.ogg'])
         self.snow, self.snowRender = SZUtil.createSnow(self.geom)

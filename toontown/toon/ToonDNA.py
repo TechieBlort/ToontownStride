@@ -1,12 +1,16 @@
 import random, colorsys
-from panda3d.core import *
+#from panda3d.core import *
+from pandac import PandaModules
 from direct.directnotify.DirectNotifyGlobal import *
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 from toontown.toonbase import ToontownGlobals
+from toontown.toonbase import PythonUtil
+from direct.showbase import PythonUtil
 notify = directNotify.newCategory('ToonDNA')
 mergeMATTailor = config.GetBool('want-mat-all-tailors', 0)
-toonSpeciesTypes = ['d',
+toonSpeciesTypes =\
+ ['d',
  'c',
  'h',
  'm',
