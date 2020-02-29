@@ -1108,7 +1108,7 @@ class OTPClientRepository(ClientRepositoryBase):
         OTPClientRepository.notify.debug('waiting for database timeout %s at %s' % (requestName, globalClock.getFrameTime()))
         self.cleanupWaitingForDatabase()
         globalClock.tick()
-        #taskMgr.doMethodLater((OTPGlobals.DatabaseDialogTimeout + extraTimeout) * choice(0, 10, 1), self.__showWaitingForDatabase, 'waitingForDatabase', extraArgs=[requestName])
+        taskMgr.doMethodLater((OTPGlobals.DatabaseDialogTimeout + extraTimeout) * choice(0, 10, 1), self.__showWaitingForDatabase, 'waitingForDatabase', extraArgs=[requestName])
 
     def cleanupWaitingForDatabase(self):
         if self.waitingForDatabase:
