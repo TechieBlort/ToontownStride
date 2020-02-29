@@ -20,6 +20,7 @@ from otp.otpgui import OTPDialog
 from otp.nametag.NametagConstants import *
 import sys, time, types, random
 from random import *
+from toontown.toonbase.PythonUtil import choice
 import __builtin__
 
 class OTPClientRepository(ClientRepositoryBase):
