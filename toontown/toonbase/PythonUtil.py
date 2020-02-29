@@ -116,6 +116,13 @@ def recordCreationStack(cls):
     cls.printCreationStackTrace = printCreationStackTrace
     return cls
 
+def choice(condition, ifTrue, ifFalse):
+    if condition:
+        return ifTrue
+    else:
+        return ifFalse
+
 import __builtin__
 __builtin__.describeException = describeException
 __builtin__.recordCreationStack = recordCreationStack
+__builtin__.choice = choice
