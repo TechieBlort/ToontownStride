@@ -1,7 +1,10 @@
 from direct.showbase.ShowBase import ShowBase
+from direct.task.TaskManagerGlobal import taskMgr
+from panda3d.core import *
+
 from otp.ai.MagicWordGlobal import *
 from otp.chat import WhiteList, WhiteListData, SequenceListData
-from pandac.PandaModules import Camera, TPLow, VBase4, ColorWriteAttrib, Filename, getModelPath, NodePath, Vec4
+from pandac.PandaModules import *
 import OTPGlobals, OTPRender, math
 
 class OTPBase(ShowBase):

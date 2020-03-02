@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ../../../
+cd ../../
 
 # Define some constants for our AI server:
 MAX_CHANNELS=999999
