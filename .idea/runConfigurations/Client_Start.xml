@@ -6,7 +6,7 @@
     <envs>
       <env name="PYTHONUNBUFFERED" value="1" />
       <env name="TTS_GAMESERVER" value="127.0.0.1" />
-      <env name="TTS_PLAYCOOKIE" value="CrankySupertoon" />
+      <env name="TTS_PLAYCOOKIE" value="CrankySupertooned" />
     </envs>
     <option name="SDK_HOME" value="/usr/bin/python2.7" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
