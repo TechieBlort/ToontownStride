@@ -1,4 +1,9 @@
 @echo off
+cd ../..
+title Toontown Stride AI
+
+rem Read the contents of PPYTHON_PATH into %PPYTHON_PATH%:
+set /P PYTHON_PATH=<PYTHON_PATH
 
 rem Define some constants for our AI server:
 set MAX_CHANNELS=999999
@@ -7,26 +12,15 @@ set ASTRON_IP=127.0.0.1:7100
 set EVENTLOGGER_IP=127.0.0.1:7198
 
 rem Get the user input:
-set /P DISTRICT_NAME="District name (DEFAULT: Nuttyboro): " || ^
-set DISTRICT_NAME=Nuttyboro
+set /P DISTRICT_NAME="District name (DEFAULT: Nutty River): " || ^
+set DISTRICT_NAME=Nutty River
 set /P BASE_CHANNEL="Base channel (DEFAULT: 401000000): " || ^
 set BASE_CHANNEL=401000000
 
-echo ===============================
-echo Starting Toontown Stride AI server...
-echo ppython: "C:\Panda3D-1.10.0\python\ppython.exe"
-echo District name: %DISTRICT_NAME%
-echo Base channel: %BASE_CHANNEL%
-echo Max channels: %MAX_CHANNELS%
-echo State Server: %STATESERVER%
-echo Astron IP: %ASTRON_IP%
-echo Event Logger IP: %EVENTLOGGER_IP%
-echo ===============================
-
-cd ../../
-
 :main
-"C:\Panda3D-1.11.0-x64-py2\python\ppython.exe" ^
+cls
+
+%PYTHON_PATH% ^
 	-m toontown.ai.ServiceStart ^
 	--base-channel %BASE_CHANNEL% ^
 	--max-channels %MAX_CHANNELS% ^

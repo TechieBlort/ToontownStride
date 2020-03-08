@@ -1,4 +1,8 @@
 @echo off
+cd ../..
+title Toontown Stride UberDOG
+rem Read the contents of PPYTHON_PATH into %PPYTHON_PATH%:
+set /P PYTHON_PATH=<PYTHON_PATH
 
 rem Define some constants for our UberDOG server:
 set MAX_CHANNELS=999999
@@ -10,20 +14,10 @@ rem Get the user input:
 set /P BASE_CHANNEL="Base channel (DEFAULT: 1000000): " || ^
 set BASE_CHANNEL=1000000
 
-echo ===============================
-echo Starting Toontown Stride UberDOG server...
-echo ppython: "C:\Panda3D-1.10.0\python\ppython.exe"
-echo Base channel: %BASE_CHANNEL%
-echo Max channels: %MAX_CHANNELS%
-echo State Server: %STATESERVER%
-echo Astron IP: %ASTRON_IP%
-echo Event Logger IP: %EVENTLOGGER_IP%
-echo ===============================
-
-cd ../../
-
 :main
-"C:\Panda3D-1.11.0-x64-py2\python\ppython.exe" ^
+cls
+
+%PYTHON_PATH% ^
 	-m toontown.uberdog.ServiceStart ^
 	--base-channel %BASE_CHANNEL% ^
 	--max-channels %MAX_CHANNELS% ^
