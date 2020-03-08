@@ -1,8 +1,8 @@
 <head>
   <title>Toontown Stride Launcher</title>
-  <link href='launch/fonts.css' rel='stylesheet' type='text/css'>
-  <link href="launch/bootstrap.min.css" rel="stylesheet">
-  <link href="launch/style.css" rel="stylesheet"> 
+  <link href='resources/launcher/fonts.css' rel='stylesheet' type='text/css'>
+  <link href="resources/launcher/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/launcher/style.css" rel="stylesheet"> 
   <HTA:APPLICATION 
      APPLICATIONNAME="Toontown Stride Launcher"
      SCROLL="no"
@@ -32,8 +32,8 @@
     sysenv("TTS_PLAYCOOKIE") = username.Value&":"&password.Value
     sysenv("TTS_GAMESERVER") = ip.Value
     run_button.Value = "Success! Launching the game..."
-        objShell.currentDirectory = objShell.currentDirectory&""
-        objShell.Run("panda\python\python.exe -m toontown.toonbase.ClientStart")
+        objShell.Run("win-start-server.bat")
+        objShell.Run("C:\Panda3D-1.11.0-x64 -m toontown.toonbase.ToontownStart")
         set objShell = Nothing
 		close
   End Sub
@@ -47,7 +47,7 @@
 	<div class="loginfields" style="display:table;clear:both;margin-left:auto;margin-right:auto;width:100%;">
 	  
 	  <div class="form-group col-lg-12">
-	  <center><img src="launch/logo.png"></center></a>
+	  <center><img src="resources/launcher/logo.png"></center></a>
 	  </div>
 	  
 	  <div class="form-group col-lg-12">
