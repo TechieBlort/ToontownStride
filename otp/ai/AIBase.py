@@ -71,7 +71,7 @@ class AIBase:
         self.wantBingo = self.config.GetBool('want-fish-bingo', 1)
         self.wantKarts = self.config.GetBool('want-karts', 1)
         self.backups = BackupManager.BackupManager(
-            filepath=self.config.GetString('backups-filepath', 'dependencies/backups/'),
+            filepath=self.config.GetString('backups-filepath', 'astron/backups/'),
             extension=self.config.GetString('backups-extension', '.json'))
         self.createStats()
         self.restart()

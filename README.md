@@ -8,20 +8,23 @@ September build of Toontown Stride, that just works.
 ## 💻 Windows
 
 ### Installing Panda
-To get the source running you need to intsall the [Panda3D](https://github.com/NormalNed/ToontownStride/blob/master/Panda3D-1.11.0.exe) located in this repo.
+To get the source running you need to install the [Panda3D](https://github.com/NormalNed/ToontownStride/blob/master/Panda3D-1.11.0.exe) located in this repo.
 
-### Installing Pip Dependenices
-The next part is to get our Dependenices. To get them open a Command Prompt Window inside of the Toontown Stride folder and run
+### Installing Pip Dependencies
+The next part is to get our Dependencies. To get them open a Command Prompt Window inside of the Toontown Stride folder and run
 ```bash
-python -m pip install -r requirements.txt
+ppython -m pip install -r requirements.txt
 ```
 
 ### Running the Game
-Now Open `dev/win32` and open all Batch Scripts
+Now run the [Localhost.hta](Localhost.hta) or [Localhost.exe](Localhost.exe) file to Locally Run The Game
+To Connect to an hosted server you can use [Connect.hta](Connect.hta) or [Connect.exe](Connect.exe)
 
+Alternatively you can navigate to `dev/win32` and open [start-ai-server.bat](start-ai-server.bat), [start-astron-cluser.bat](start-astron-cluser.bat), and [start-uberdog-server.bat](start-uberdog-server.bat)
+Furthermore from here to open the Client run [start-game.bat](start-game.bat) and if your locally connecting run [start-game-localhost.bat](start-game-localhost.bat)
 
 ## 🐧 Linux
-### Gathering Basic Dependenices
+### Gathering Basic Dependencies
 ##### Arch / Manjaro
 ```yay -S xorg-server  libgl  python  openssl  libjpeg  libpng  freetype2  gtk2  libtiff  nvidia-cg-toolkit  openal  zlib  libxxf86dga  assimp  bullet  eigen  ffmpeg  fmodex  libxcursor  libxrandr  git  opencv  libgles  libegl```
 
@@ -40,8 +43,8 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
 ```
 
-### Installing Pip Dependenices
-The next part is to get our Dependenices. Open a Terminal inside of the Stride Project and follow these instructions below.
+### Installing Pip Dependencies
+The next part is to get our Dependencies. Open a Terminal inside of the Stride Project and follow these instructions below.
 ```bash
 pip2.7 install -r requirements.txt
 ```
@@ -58,4 +61,5 @@ sudo ldconfig
 ```
 
 #### Running the Game
-Now Open `dev/linux` and run all the Shell Scripts
+Now you can navigate to `dev/liun` and open [start-ai-server.sh](start-ai-server.sh), [start-astron-cluser.sh](start-astron-cluser.sh), and [start-uberdog-server.sh](start-uberdog-server.sh)
+Furthermore from here to open the Client run [start-game.bat](start-game.bat) and if your locally connecting run [start-game-localhost.bat](start-game-localhost.bat)
