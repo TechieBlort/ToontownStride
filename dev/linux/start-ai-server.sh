@@ -8,8 +8,8 @@ ASTRON_IP="127.0.0.1:7100"
 EVENTLOGGER_IP="127.0.0.1:7198"
 
 # Get the user input:
-read -p "District name (DEFAULT: Nutty River): " DISTRICT_NAME
-DISTRICT_NAME=${DISTRICT_NAME:-Nutty River}
+read -p "District name (DEFAULT: Nuttyriver): " DISTRICT_NAME
+DISTRICT_NAME=${DISTRICT_NAME:-Nuttyriver}
 read -p "Base channel (DEFAULT: 401000000): " BASE_CHANNEL
 BASE_CHANNEL=${BASE_CHANNEL:-401000000}
 
