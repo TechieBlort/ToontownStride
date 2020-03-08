@@ -32,7 +32,6 @@
     sysenv("TTS_PLAYCOOKIE") = username.Value&":"&password.Value
     sysenv("TTS_GAMESERVER") = ip.Value
     run_button.Value = "Success! Launching the game..."
-        objShell.Run("win-start-server.bat")
         objShell.Run("C:\Panda3D-1.11.0-x64\python\ppython.exe -m toontown.toonbase.ToontownStart")
         set objShell = Nothing
 		close
