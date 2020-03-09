@@ -67,7 +67,7 @@ class Avatar(Actor, ShadowCaster):
         self.__chatSet = 0
         self.__chatLocal = 0
         self.__currentDialogue = None
-        self.wantAdminTag = True
+        #self.wantAdminTag = True
 
     def delete(self):
         try:
@@ -174,11 +174,11 @@ class Avatar(Actor, ShadowCaster):
     def getType(self):
         return self.avatarType
     
-    def setWantAdminTag(self, bool):
-        self.wantAdminTag = bool
+    #def setWantAdminTag(self, bool):
+    #    self.wantAdminTag = bool
     
-    def getWantAdminTag(self):
-        return self.wantAdminTag
+    #def getWantAdminTag(self):
+    #    return self.wantAdminTag
 
     def setName(self, name):
         if hasattr(self, 'isDisguised') and self.isDisguised:
@@ -201,11 +201,11 @@ class Avatar(Actor, ShadowCaster):
 
         self.nametag.setName(name)
 
-        if hasattr(self, 'adminAccess') and self.isAdmin() and self.getWantAdminTag():
-            access = self.getAdminAccess()
-
-            if access in OTPLocalizer.AccessToString:
-                name += '\n\x01shadow\x01%s\x02' % OTPLocalizer.AccessToString[access]
+        #if hasattr(self, 'adminAccess') and self.isAdmin() and self.getWantAdminTag():
+        #    access = self.getAdminAccess()
+#
+        #    if access in OTPLocalizer.AccessToString:
+        #        name += '\n\x01shadow\x01%s\x02' % OTPLocalizer.AccessToString[access]
 
         self.nametag.setDisplayName(name)
 
