@@ -26,6 +26,7 @@ from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.toontowngui import TTDialog
 from toontown.toonbase.TTFrameRateMeter import TTFrameRateMeter
+from toontown.toonbase.TTCopyright import TTCopyright
 
 
 tempdir = tempfile.mkdtemp()
@@ -427,6 +428,10 @@ class ToonBase(OTPBase.OTPBase):
             if self.frameRateMeter:
                 self.frameRateMeter.destroy()
                 self.frameRateMeter = None
+
+    def setCopyright(self, flag):
+        self.copyright = TTCopyright()
+
     # OS X Specific Actions
     def exitOSX(self):
         self.confirm = TTDialog.TTGlobalDialog(doneEvent='confirmDone', message=TTLocalizer.OptionsPageExitConfirm, style=TTDialog.TwoChoice)

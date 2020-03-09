@@ -3,10 +3,8 @@ from toontown.toonbase import ToontownGlobals
 import random
 
 class TTFrameRateMeter(TextNode):
-    TEXT_COLORS = [(1, 0.5, 0, 1),# Orange
-                   (1, 0, 0, 1), # Red
-                   (0, .8, .4, 1), # Green
-                   (0, 0, 1, 1)] # Blue
+    TEXT_COLORS = [(0, .8, .4, 1)]
+
     DELAY_TIME = 0.5
 
     def __init__(self, name='frameRateMeter'):
@@ -16,12 +14,12 @@ class TTFrameRateMeter(TextNode):
         self.setTextColor(random.choice(self.TEXT_COLORS))
         self.setCardColor(0, 0, 0, 0)
         self.setCardAsMargin(0.5, 0.5, 0.5, 0.5)
-        self.setAlign(TextNode.ARight)
+        self.setAlign(TextNode.ABoxedCenter)
         self.setFont(ToontownGlobals.getSignFont())
-        self.frameRateMeter = base.a2dTopRight.attachNewNode(self)
+        self.frameRateMeter = base.a2dTopCenter.attachNewNode(self)
         self.frameRateMeter.setBin("gui-popup", 10000)
-        self.frameRateMeter.setScale(0.08)          
-        self.frameRateMeter.setPos(-0.100, 0, -0.300)
+        self.frameRateMeter.setScale(0.07)          
+        self.frameRateMeter.setPos(0, 0, -0.100)
         taskMgr.doMethodLater(self.DELAY_TIME, self.update, 'update-frame-rate')
 
     def update(self, task=None):
