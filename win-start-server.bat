@@ -1,5 +1,5 @@
 cd dev
-cd win32
+cd tools
 echo Launching the AI Server...
 START autostart-ai-server.bat
 echo Launching Astron...
