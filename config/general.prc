@@ -25,7 +25,7 @@ texture-anisotropic-degree 16
 preferences-filename user/preferences.json
 
 # Backups:
-backups-filepath backups/
+backups-filepath astron/backups/
 backups-extension .json
 
 # Server:

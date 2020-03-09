@@ -1,6 +1,6 @@
 *.log
 *.pyc
-backups/
+astron/backups/
 astron/databases/astrondb/*
 astron/databases/account-bridge.db
 user/*
