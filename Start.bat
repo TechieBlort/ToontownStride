@@ -49,7 +49,6 @@ cls
 echo = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 echo Starting Localhost!
 echo = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-cd dev
 cd tools
 echo Launching the AI Server...
 START autostart-ai-server.bat
@@ -57,7 +56,6 @@ echo Launching Astron...
 START autostart-astron-cluster.bat
 echo Launching the Uberdog Server...
 START autostart-uberdog-server.bat
-cd ..
 cd ..
 SET TTS_GAMESERVER=127.0.0.1
 goto game

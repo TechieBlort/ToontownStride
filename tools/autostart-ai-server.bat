@@ -1,5 +1,5 @@
 @echo off
-cd ../..
+cd ..
 title Toontown Stride AI
 
 rem Read the contents of PPYTHON_PATH into %PPYTHON_PATH%:

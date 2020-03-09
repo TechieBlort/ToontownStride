@@ -1,5 +1,5 @@
 @echo off
-cd "../../astron/"
+cd "../astron/"
 title Toontown Stride Astron
 
 
