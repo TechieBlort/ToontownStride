@@ -2434,6 +2434,7 @@ class ToonDNA:
         string = string + 'sleeve texture color = %d\n' % self.sleeveTexColor
         string = string + 'bottom texture = %d\n' % self.botTex
         string = string + 'bottom texture color = %d\n' % self.botTexColor
+        string = string + 'laughing man = %d\n' % self.laughingMan
         return string
 
     def clone(self):
@@ -2465,6 +2466,7 @@ class ToonDNA:
             self.gloveColor = self.migrateColor(self.gloveColor)
             self.legColor = self.migrateColor(self.legColor)
             self.headColor = self.migrateColor(self.headColor)
+            self.laughingMan = self.migrateColor(self.laughingMan)
             for colors in (self.armColor, self.gloveColor, self.legColor, self.headColor):
                 for color in colors[:-1]:
                     dg.addFloat64(color)
@@ -2473,6 +2475,12 @@ class ToonDNA:
         else:
             notify.error('unknown avatar type: ', self.type)
         return dg.getMessage()
+
+    def getDatagramWithFallback(self, dgi, fallback=0):
+        try:
+            return dgi.getUint8()
+        except:
+            return fallback
 
     def isValidNetString(self, string):
         dg = PyDatagram(string)
@@ -2504,6 +2512,7 @@ class ToonDNA:
         gloveColor = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
         legColor = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
         headColor = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
+        laughingMan = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
         if topTex >= len(Shirts):
             return False
         if topTexColor >= len(ClothesColors):
@@ -2523,6 +2532,8 @@ class ToonDNA:
         if not self.isValid(legColor):
             return False
         if not self.isValid(headColor):
+            return False
+        if laughingMan != 0 and laughingMan != 1:
             return False
         return True
     
@@ -2559,6 +2570,8 @@ class ToonDNA:
             self.gloveColor = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
             self.legColor = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
             self.headColor = (dgi.getFloat64(), dgi.getFloat64(), dgi.getFloat64(), 1.0)
+            self.laughingMan = self.getDatagramWithFallback(dgi, 0)
+
         else:
             notify.error('unknown avatar type: ', self.type)
 
@@ -2585,13 +2598,14 @@ class ToonDNA:
             self.legColor = color
             self.headColor = color
             self.gloveColor = 0
+            self.laughingMan = 0
         else:
             notify.error("tuple must be in format ('%s', '%s', '%s', '%s')")
     
     def migrateColor(self, color):
         return allColorsList[color] if isinstance(color, int) else color
 
-    def newToonFromProperties(self, head, torso, legs, gender, armColor, gloveColor, legColor, headColor, topTexture, topTextureColor, sleeveTexture, sleeveTextureColor, bottomTexture, bottomTextureColor):
+    def newToonFromProperties(self, head, torso, legs, gender, armColor, gloveColor, legColor, headColor, topTexture, topTextureColor, sleeveTexture, sleeveTextureColor, bottomTexture, bottomTextureColor, laughingMan=0):
         self.type = 't'
         self.head = head
         self.torso = torso
@@ -2607,8 +2621,9 @@ class ToonDNA:
         self.sleeveTexColor = sleeveTextureColor
         self.botTex = bottomTexture
         self.botTexColor = bottomTextureColor
+        self.laughingMan = laughingMan
 
-    def updateToonProperties(self, head = None, torso = None, legs = None, gender = None, armColor = None, gloveColor = None, legColor = None, headColor = None, topTexture = None, topTextureColor = None, sleeveTexture = None, sleeveTextureColor = None, bottomTexture = None, bottomTextureColor = None, shirt = None, bottom = None):
+    def updateToonProperties(self, head = None, torso = None, legs = None, gender = None, armColor = None, gloveColor = None, legColor = None, headColor = None, topTexture = None, topTextureColor = None, sleeveTexture = None, sleeveTextureColor = None, bottomTexture = None, bottomTextureColor = None, shirt = None, bottom = None, laughingMan = False):
         if head:
             self.head = head
         if torso:
@@ -2637,6 +2652,7 @@ class ToonDNA:
             self.botTex = bottomTexture
         if bottomTextureColor:
             self.botTexColor = bottomTextureColor
+        self.laughingMan = laughingMan
         if shirt:
             str, colorIndex = shirt
             defn = ShirtStyles[str]
@@ -2697,6 +2713,7 @@ class ToonDNA:
         self.legColor = color
         self.headColor = color
         self.gloveColor = self.migrateColor(0)
+        self.laughingMan = 0
 
     def asTuple(self):
         return (self.head,
@@ -2712,7 +2729,7 @@ class ToonDNA:
          self.sleeveTex,
          self.sleeveTexColor,
          self.botTex,
-         self.botTexColor)
+         self.botTexColor
     
     def asNpcTuple(self):
         return (self.head,
@@ -2728,7 +2745,8 @@ class ToonDNA:
          self.sleeveTex,
          self.sleeveTexColor,
          self.botTex,
-         self.botTexColor)
+         self.botTexColor,
+         self.laughingMan)
 
     def getType(self):
         if self.type == 't':
@@ -2828,3 +2846,23 @@ class ToonDNA:
 
     def getWhiteColor(self):
         return allColorsList[0]
+
+    def isLaughingMan(self):
+        return self.laughingMan
+
+    def setTemporary(self, newHead, newArmColor, newLegColor, newHeadColor):
+        if not self.cache and self.getArmColor != newArmColor:
+            self.cache = (self.head,
+             self.armColor,
+             self.legColor,
+             self.headColor)
+            self.updateToonProperties(head=newHead, armColor=newArmColor, legColor=newLegColor, headColor=newHeadColor)
+
+    def restoreTemporary(self, oldStyle):
+        cache = ()
+        if oldStyle:
+            cache = oldStyle.cache
+        if cache:
+            self.updateToonProperties(head=cache[0], armColor=cache[1], legColor=cache[2], headColor=cache[3])
+            if oldStyle:
+                oldStyle.cache = ()

@@ -4886,6 +4886,16 @@ def dna(part, value):
         target.b_setDNAString(dna.makeNetString())
         return 'Bottom texture color index set to: ' + str(dna.botTexColor)
 
+    if part == 'laughingman':
+        if not value.isdigit():
+            return 'Laughing Man can only be 0 or 1.'
+        value = int(value)
+        if value != 0 and value != 1:
+            return 'Laughing Man can only be 0 or 1.'
+        dna.laughingMan = value
+        invoker.b_setDNAString(dna.makeNetString())
+        return 'Laughing Man set to: ' + str(dna.laughingMan)
+
     if part == 'show':
         return dna.asNpcTuple() if value else dna.asTuple()
     if part == 'showrandom':
