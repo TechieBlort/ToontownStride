@@ -15,7 +15,6 @@ from sys import platform
 import sys
 import tempfile
 import time
-
 import ToontownGlobals
 import ToontownLoader
 from otp.otpbase import OTPBase
@@ -26,6 +25,8 @@ from otp.margins.MarginManager import MarginManager
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownBattleGlobals
 from toontown.toontowngui import TTDialog
+from toontown.toonbase.TTFrameRateMeter import TTFrameRateMeter
+
 
 tempdir = tempfile.mkdtemp()
 vfs = VirtualFileSystem.getGlobalPtr()
@@ -417,7 +418,15 @@ class ToonBase(OTPBase.OTPBase):
 
     def playMusic(self, music, looping = 0, interrupt = 1, volume = None, time = 0.0):
         OTPBase.OTPBase.playMusic(self, music, looping, interrupt, volume, time)
-
+    
+    def setFrameRateMeter(self, flag):
+        if flag:
+            if not self.frameRateMeter:
+                self.frameRateMeter = TTFrameRateMeter()
+        else:
+            if self.frameRateMeter:
+                self.frameRateMeter.destroy()
+                self.frameRateMeter = None
     # OS X Specific Actions
     def exitOSX(self):
         self.confirm = TTDialog.TTGlobalDialog(doneEvent='confirmDone', message=TTLocalizer.OptionsPageExitConfirm, style=TTDialog.TwoChoice)
