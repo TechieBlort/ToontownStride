@@ -177,6 +177,7 @@ cr.music = music
 del music
 base.initNametagGlobals()
 base.setFrameRateMeter(settings['fpsMeter'])
+base.setCopyright(settings['fpsMeter'])
 base.cr = cr
 loader.endBulkLoad('init')
 from otp.friends import FriendManager

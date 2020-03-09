@@ -10030,3 +10030,6 @@ Blacklist = [
  "xrated",
  "xxx"
 ]
+
+CopyrightOn = 'on'
+CopyrightOff = 'off'
