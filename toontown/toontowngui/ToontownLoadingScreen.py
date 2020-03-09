@@ -26,7 +26,7 @@ class ToontownLoadingScreen:
         self.logo.reparentTo(hidden)
         self.logo.setTransparency(TransparencyAttrib.MAlpha)
         scale = self.logo.getScale()
-        self.logo.setPos(0, 0, -scale[2])
+        self.logo.setPos(0, 0, -0.65)
 
     def destroy(self):
         self.tip.destroy()
