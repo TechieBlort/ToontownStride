@@ -79,6 +79,6 @@ echo = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 echo Welcome to Toontown Stride, %ttsUsername%!
 echo The Tooniverse Awaits You!
 echo = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
+title Toontown Stride Client
 %PYTHON_PATH% -m toontown.toonbase.ToontownStart
 PAUSE
