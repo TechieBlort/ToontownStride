@@ -15,7 +15,6 @@ rem Get the user input:
 set BASE_CHANNEL=1000000
 
 :main
-cls
 
 %PYTHON_PATH% ^
 	-m toontown.uberdog.ServiceStart ^

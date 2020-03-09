@@ -12,7 +12,7 @@ sys.path.append(
     os.path.abspath(
         os.path.join(
             os.path.dirname(__file__),
-            "../../dependencies"
+            "../../"
         )
     )
 )
@@ -30,14 +30,14 @@ parser.add_argument('--max-channels', help='The number of channels the server ma
 parser.add_argument('--stateserver', help="The control channel of this UD's designated State Server.")
 parser.add_argument('--astron-ip', help="The IP address of the Astron Message Director to connect to.")
 parser.add_argument('--eventlogger-ip', help="The IP address of the Astron Event Logger to log to.")
-parser.add_argument('config', nargs='*', default=['dependencies/config/general.prc', 'dependencies/config/release/dev.prc'], help="PRC file(s) to load.")
+parser.add_argument('config', nargs='*', default=['config/general.prc', 'config/release/dev.prc'], help="PRC file(s) to load.")
 args = parser.parse_args()
 
 for prc in args.config:
     loadPrcFile(prc)
 
-if os.path.isfile('dependencies/config/local.prc'):
-    loadPrcFile('dependencies/config/local.prc')
+if os.path.isfile('config/local.prc'):
+    loadPrcFile('config/local.prc')
 
 localconfig = ''
 if args.base_channel:

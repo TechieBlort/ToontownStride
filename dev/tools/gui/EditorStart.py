@@ -5,8 +5,8 @@ import __builtin__, wx, os
 
 __builtin__.__dict__.update(__import__('panda3d.core', fromlist=['*']).__dict__)
 
-loadPrcFile('dependencies/config/guieditor.prc')
-loadPrcFile('dependencies/config/general.prc')
+loadPrcFile('config/guieditor.prc')
+loadPrcFile('config/general.prc')
 
 defaultText = """from direct.gui.DirectGui import *
 

@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ../../dependencies/astron
+cd ../../astron
 ./astrond --loglevel info config/cluster.yml

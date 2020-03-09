@@ -25,7 +25,7 @@ texture-anisotropic-degree 16
 preferences-filename user/preferences.json
 
 # Backups:
-backups-filepath dependencies/backups/
+backups-filepath backups/
 backups-extension .json
 
 # Server:
