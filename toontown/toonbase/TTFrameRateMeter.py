@@ -14,14 +14,14 @@ class TTFrameRateMeter(TextNode):
         self.lastFrameRate = None
         self.setText("0.0 FPS")
         self.setTextColor(random.choice(self.TEXT_COLORS))
-        self.setCardColor(1, 1, 1, .6)
+        self.setCardColor(0, 0, 0, 0)
         self.setCardAsMargin(0.5, 0.5, 0.5, 0.5)
         self.setAlign(TextNode.ARight)
         self.setFont(ToontownGlobals.getSignFont())
         self.frameRateMeter = base.a2dTopRight.attachNewNode(self)
         self.frameRateMeter.setBin("gui-popup", 10000)
-        self.frameRateMeter.setScale(0.07)          
-        self.frameRateMeter.setPos(-0.105, 0, -0.115)
+        self.frameRateMeter.setScale(0.08)          
+        self.frameRateMeter.setPos(-0.100, 0, -0.300)
         taskMgr.doMethodLater(self.DELAY_TIME, self.update, 'update-frame-rate')
 
     def update(self, task=None):
